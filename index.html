@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Watermelon ASMR</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Glass Watermelon ASMR</h1>
+            <p class="subtitle">Soft, sleepy, relaxing sounds</p>
+        </div>
+
+        <div class="scene">
+            <div class="woman">
+                <div class="woman-body">
+                    <div class="head"></div>
+                    <div class="torso"></div>
+                    <div class="arm left-arm"></div>
+                    <div class="arm right-arm" id="cuttingArm"></div>
+                    <div class="knife" id="knife"></div>
+                </div>
+            </div>
+
+            <div class="watermelon-container">
+                <svg class="watermelon" id="watermelon" viewBox="0 0 300 200">
+                    <defs>
+                        <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#90EE90;stop-opacity:0.3" />
+                            <stop offset="50%" style="stop-color:#98FB98;stop-opacity:0.5" />
+                            <stop offset="100%" style="stop-color:#90EE90;stop-opacity:0.3" />
+                        </linearGradient>
+                        <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FF6B9D;stop-opacity:0.4" />
+                            <stop offset="50%" style="stop-color:#FFA5BA;stop-opacity:0.6" />
+                            <stop offset="100%" style="stop-color:#FF6B9D;stop-opacity:0.4" />
+                        </linearGradient>
+                        <filter id="glass-blur">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" />
+                        </filter>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+
+                    <!-- Watermelon body -->
+                    <ellipse cx="150" cy="100" rx="120" ry="80" fill="url(#redGradient)" filter="url(#glass-blur)" class="glass-element"/>
+                    <ellipse cx="150" cy="100" rx="130" ry="85" fill="none" stroke="url(#glassGradient)" stroke-width="3" class="glass-element"/>
+
+                    <!-- Glass seeds -->
+                    <ellipse cx="120" cy="90" rx="6" ry="8" fill="#000" opacity="0.3" class="seed"/>
+                    <ellipse cx="160" cy="95" rx="6" ry="8" fill="#000" opacity="0.3" class="seed"/>
+                    <ellipse cx="140" cy="110" rx="6" ry="8" fill="#000" opacity="0.3" class="seed"/>
+                    <ellipse cx="180" cy="100" rx="6" ry="8" fill="#000" opacity="0.3" class="seed"/>
+                    <ellipse cx="110" cy="115" rx="6" ry="8" fill="#000" opacity="0.3" class="seed"/>
+                    <ellipse cx="170" cy="115" rx="6" ry="8" fill="#000" opacity="0.3" class="seed"/>
+
+                    <!-- Glass reflections -->
+                    <ellipse cx="100" cy="70" rx="30" ry="20" fill="#fff" opacity="0.3" class="reflection"/>
+                    <ellipse cx="180" cy="80" rx="20" ry="15" fill="#fff" opacity="0.2" class="reflection"/>
+
+                    <!-- Cut line -->
+                    <line id="cutLine" x1="150" y1="40" x2="150" y2="40" stroke="#fff" stroke-width="2" opacity="0.8" filter="url(#glow)"/>
+                </svg>
+
+                <div class="sparkles" id="sparkles"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn" class="btn-start">Start ASMR Experience</button>
+            <button id="stopBtn" class="btn-stop" style="display: none;">Stop</button>
+            <div class="volume-control">
+                <label for="volume">Volume</label>
+                <input type="range" id="volume" min="0" max="100" value="50">
+            </div>
+        </div>
+
+        <div class="info">
+            <p>🎧 Best experienced with headphones</p>
+            <p>✨ Watch as the glass watermelon is gently cut with soothing sounds</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
